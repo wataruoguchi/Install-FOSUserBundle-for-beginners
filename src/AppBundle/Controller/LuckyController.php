@@ -20,11 +20,10 @@ class LuckyController extends Controller
       }
       $numbersList = implode(', ', $numbers);
 
-      $html = $this->container->get('templating')->render(
+      return $this->render(
         'lucky/number.html.twig',
         array('luckyNumberList' => $numbersList)
       );
-      return new Response($html);
     }
 
     /**
