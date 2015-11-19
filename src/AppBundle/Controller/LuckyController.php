@@ -9,15 +9,19 @@ use Symfony\Component\HttpFoundation\JsonResponse;
 class LuckyController extends Controller
 {
     /**
-     * @Route("/lucky/number")
+     * @Route("/lucky/number/{count}")
      */
     // http://localhost:8888/webDev/symfony/isHosting/web/app_dev.php/lucky/number
-    public function numberAction()
+    public function numberAction($count)
     {
-      $number = rand(0, 100);
+      $numbers = array();
+      for($i = 0; $i < $count; $i++) {
+        $numbers[] = rand(0, 100);
+      }
+      $numbersList = implode(', ', $numbers);
 
       return new Response(
-        '<html><body>Lucky number: '.$number.'</body></html>'
+        '<html><body>Lucky number: '.$numbersList.'</body></html>'
       );
     }
 
