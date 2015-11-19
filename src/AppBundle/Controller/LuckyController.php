@@ -4,6 +4,7 @@ namespace AppBundle\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\HttpFoundation\JsonResponse;
 
 class LuckyController extends Controller
 {
@@ -30,10 +31,7 @@ class LuckyController extends Controller
         'lucky_number' => rand(0, 100),
       );
 
-      return new Response(
-        json_encode($data),
-        200,
-        array('Content-Type' => 'application/json')
-      );
+      // calls json_encode and sets the Content-Type header
+      return new JsonResponse($data);
     }
 }
