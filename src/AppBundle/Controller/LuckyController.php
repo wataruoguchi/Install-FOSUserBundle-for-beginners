@@ -12,7 +12,7 @@ class LuckyController extends Controller
      * @Route("/lucky/number/{count}")
      */
     // http://localhost:8888/webDev/symfony/isHosting/web/app_dev.php/lucky/number
-    public function numberAction($count)
+    public function numberAction($subdomain, $count)
     {
       $numbers = array();
       for($i = 0; $i < $count; $i++) {
@@ -22,7 +22,7 @@ class LuckyController extends Controller
 
       return $this->render(
         'lucky/number.html.twig',
-        array('luckyNumberList' => $numbersList)
+        array('luckyNumberList' => $numbersList, 'subdomain' => $subdomain)
       );
     }
 
