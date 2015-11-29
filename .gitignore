@@ -12,3 +12,4 @@
 /node_modules/
 /web/vendor/*
 /web/css/*
+/.sass-cache/
