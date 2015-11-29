@@ -1,6 +1,3 @@
-# app:
-#     resource: "@AppBundle/Controller/"
-#     type:     annotation
 sub_home:
   path: /{count}
   host: "{subdomain}.%base_domain%"
@@ -9,3 +6,6 @@ sub_home:
 main_home:
   path: /
   defaults: { _controller: AppBundle:Default:index }
+
+fos_user:
+  resource: "@FOSUserBundle/Resources/config/routing/all.xml"
